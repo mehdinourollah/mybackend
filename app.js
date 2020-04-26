@@ -3,29 +3,38 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors')
+var cors = require('cors');
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var telegramRouter = require('./routes/telegram');
 
+const dotenv = require('dotenv')
+const result = dotenv.config()
+
+if (result.error) {
+    throw result.error
+}
+
+// console.log(result.parsed)
+
 ///////// TELEGRAM //////////////////
 
-const TeleBot = require('telebot');
-const bot = new TeleBot(process.env.TELEGRAM_TOKEN);
+// const TeleBot = require('telebot');
+// const bot = new TeleBot(process.env.TELEGRAM_TOKEN);
 
-bot.getMe().then((res) => {
-    console.log(res)
-})
+// bot.getMe().then((res) => {
+//     console.log(res)
+// })
 
 
 
-bot.on('text', (res => {
-    console.log(res)
-}))
+// bot.on('text', (res => {
+//     console.log(res)
+// }))
 
-bot.start();
+// bot.start();
 
 ///////// TELEGRAM //////////////////
 
