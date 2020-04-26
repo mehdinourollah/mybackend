@@ -23,4 +23,9 @@ router.post('/', function(req, res, next) {
 
 });
 
+router.post('/testenv', function(req, res, next) {
+    res.send({
+        env: process.env
+    })
+})
 module.exports = router;
